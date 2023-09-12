@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Выбор персонажа</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+        }
+
+        img {
+            width: 50%;
+            box-shadow: 0px 15px 15px #00000029;
+            border: 3px solid #27A7E7;
+            border-radius: 50px;
+            opacity: 1;
+        }
+
+        #main {
+            width: 100%;
+        }
+
+        .character {
+            text-align: center;
+            padding-top: 3%;
+        }
+
+        .character_name {
+            text-align: center;
+            font: normal normal bold 40px/48px SF Pro;
+            letter-spacing: 0px;
+            color: #27A7E7;
+            opacity: 1;
+        }
+
+        .character_class {
+            text-align: center;
+            font: normal normal 300 40px/48px SF Pro;
+            letter-spacing: 0px;
+            color: #27A7E7;
+            opacity: 1;
+        };
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="character">
+            <img id="img_mario" src="./img/mario.png" alt="mario">
+            <div class="character_name">Марио</div>
+            <div class="character_class">Персонаж</div>
+        </div>
+        <div class="character">
+            <img id="img_albert" src="./img/albert.png" alt="mario">
+            <div class="character_name">Альберт Энштейн</div>
+            <div class="character_class">Физик-теоретик</div>
+        </div>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let mario = document.getElementById("img_mario");
+        let albert = document.getElementById("img_albert");
+        tg.expand();
+
+
+        mario.addEventListener("click", () => {
+            tg.sendData('mario');
+            tg.close();
+        });
+
+        albert.addEventListener("click", () => {
+            tg.sendData('albert');
+            tg.close();
+        });
+
+    </script>
+</body>
+</html>
